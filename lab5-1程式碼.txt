@@ -1,0 +1,28 @@
+ƒÜ	#include <Keypad.h>
+ƒÜ	
+ƒÜ	 #include <Keypad.h>
+ƒÜ	const byte ROWS = 4; // 4 Rows
+ƒÜ	const byte COLS = 4; // 4 Columns
+ƒÜ	// ©w¸q Keypad ªº«öÁä
+ƒÜ	char keys[ROWS][COLS] = {
+ƒÜ	{'F', 'E', 'D', 'C'}, {'B','3','6', '9'},
+ƒÜ	{'A', '2', '5', '8'}, {'0', '1', '4', '7'}
+ƒÜ	};
+ƒÜ	// ©w¸q Keypad ³s¨ì Arduino ªº±µ¸}
+ƒÜ	byte rowPins[ROWS] = {5, 4, 3, 2};
+ƒÜ	// ³s¨ì Keypad ªº 4 ­Ó Rows
+ƒÜ	byte colPins[COLS] = {11, 10, 9, 8};
+ƒÜ	// ³s¨ì Keypad ªº 4 ­Ó Columns
+ƒÜ	// «Ø¥ß Keypad ª«¥ó
+ƒÜ	Keypad keypad =
+ƒÜ	Keypad( makeKeymap(keys), rowPins,
+ƒÜ	colPins, ROWS, COLS );
+ƒÜ	void setup(){
+ƒÜ	Serial.begin(9600);
+ƒÜ	}
+ƒÜ	void loop(){
+ƒÜ	char key = keypad.getKey(); // Åª¨ú Keypad
+ƒÜ	if (key != NO_KEY){
+ƒÜ	Serial.println(key);
+ƒÜ	}
+ƒÜ	}
